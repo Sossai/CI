@@ -35,3 +35,19 @@ jobs:
           name: Resultados dos testes
           path: '**/test-results.trx'
           reporter: dotnet-trx
+
+  check-application:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Executar aplicação
+        run: dotnet run --project ConsoleApp1/ConsoleApp1.csproj --configuration Release
