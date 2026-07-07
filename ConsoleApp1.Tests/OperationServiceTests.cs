@@ -6,7 +6,7 @@ namespace ConsoleApp1.Tests
     public class OperationServiceTests
     {
         [Theory]
-        [InlineData(10, 2, 13)]
+        [InlineData(10, 2, 12)]
         [InlineData(0, 0, 0)]
         [InlineData(-5, 5, 0)]
         [InlineData(-3, -7, -10)]
